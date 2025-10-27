@@ -285,6 +285,122 @@
                 text-align: center !important;
             }
         }
+        
+        /* Header blur background - reduced blur */
+        .header-area {
+            background: rgba(0, 0, 0, 0.3) !important;
+            backdrop-filter: blur(2px) !important;
+        }
+        
+        /* Mobile menu container styling */
+        .mobile_menu {
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+        
+        /* Ensure SlickNav menu is properly styled */
+        .slicknav_menu {
+            background: rgba(0, 0, 0, 0.8) !important;
+            backdrop-filter: blur(15px) !important;
+            display: block !important;
+            position: relative !important;
+            z-index: 9999 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+        }
+        
+        .slicknav_btn {
+            background: transparent !important;
+            cursor: pointer !important;
+        }
+        
+        .slicknav_icon {
+            background: white !important;
+            height: 4px !important;
+            width: 30px !important;
+            border-radius: 2px !important;
+        }
+        
+        .slicknav_icon:before,
+        .slicknav_icon:after {
+            background: white !important;
+            height: 4px !important;
+            width: 30px !important;
+            border-radius: 2px !important;
+        }
+        
+        .slicknav_menu .slicknav_menutxt {
+            color: white !important;
+            font-weight: bold !important;
+        }
+        
+        .slicknav_menu .slicknav_nav {
+            background: rgba(0, 0, 0, 0.9) !important;
+            backdrop-filter: blur(15px) !important;
+        }
+        
+        .slicknav_menu .slicknav_nav a {
+            color: white !important;
+            font-weight: 500 !important;
+            padding: 15px 20px !important;
+            display: block !important;
+            background: rgba(0, 0, 0, 0.8) !important;
+            margin: 2px 0 !important;
+            border-radius: 5px !important;
+            text-decoration: none !important;
+        }
+        
+        .slicknav_menu .slicknav_nav a:hover {
+            background: rgba(255, 215, 0, 0.2) !important;
+            color: #FFD700 !important;
+        }
+        
+        /* Logo positioning - moved away from far left */
+        .logo {
+            text-align: left !important;
+            padding-left: 20px !important;
+            margin-left: 0 !important;
+        }
+        
+        .col-xl-3.col-lg-3 {
+            text-align: left !important;
+            padding-left: 0 !important;
+        }
+        
+        /* Header buttons styling - desktop only */
+        .buy_tkt .book_btn {
+            display: flex !important;
+            gap: 8px !important;
+            justify-content: flex-end !important;
+            align-items: center !important;
+        }
+        
+        .buy_tkt .book_btn a {
+            font-size: 0.75em !important;
+            padding: 6px 12px !important;
+            background-color: #FFD700 !important;
+            color: #000 !important;
+            border: 1px solid #FFD700 !important;
+            border-radius: 4px !important;
+            text-decoration: none !important;
+            font-weight: bold !important;
+            transition: all 0.3s ease !important;
+        }
+        
+        .buy_tkt .book_btn a:hover {
+            background-color: #FFC107 !important;
+            border-color: #FFC107 !important;
+            color: #000 !important;
+            text-decoration: none !important;
+            transform: translateY(-1px) !important;
+        }
+        
+        /* Ensure buttons are hidden on mobile */
+        @media (max-width: 991px) {
+            .buy_tkt .book_btn {
+                display: none !important;
+            }
+        }
     </style>
 </head>
 
@@ -301,29 +417,14 @@
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-3">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/doblogo.png" alt="">
+                                <div class="logo" style="margin-left: 0 !important; padding-left: 20px !important; text-align: left !important;">
+                                    <a href="index.html" style="display: inline-block;">
+                                        <img src="img/doblogo.png" alt="" style="width: 80px !important; height: 80px !important; max-width: 80px !important; max-height: 80px !important;">
                                     </a>
                                 </div>
                             </div>
                             <div class="col-xl-6 col-lg-6">
-                                <div class="main-menu  d-none d-lg-block">
-                                    <nav>
-                                        <ul id="navigation">
-                                            <!-- <li><a href="index.html">home</a></li> -->
-                                            
-                                            
-                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                
-                                                </ul>
-                                            </li> -->
-                                           
-                                        </ul>
-                                    </nav>
-                                </div>
+                                <!-- Desktop navigation removed - links only in mobile menu -->
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="buy_tkt">
@@ -334,7 +435,14 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
+                                <div class="mobile_menu d-block d-lg-none">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="tickets.html">Table Reservations</a></li>
+                                            <li><a href="sponsorship.html">Sponsorship</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -366,19 +474,6 @@
                 </div>
             </div>
             
-            <!-- Hero Overlay with Glowing Buttons -->
-            <div class="hero-overlay">
-                <div class="hero-buttons-container">
-                    <a href="tickets.html" class="hero-btn table-reservation-btn">
-                        <span class="btn-text">Table Reservations</span>
-                        <div class="btn-glow"></div>
-                    </a>
-                    <a href="sponsorship.html" class="hero-btn sponsorship-btn">
-                        <span class="btn-text">Sponsorship</span>
-                        <div class="btn-glow"></div>
-                    </a>
-                </div>
-            </div>
         </div>
     </div>
     <!-- slider_area_end -->
@@ -623,6 +718,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made 
 
 
     <script src="js/main.js"></script>
+    
+    <!-- Initialize SlickNav Mobile Menu -->
+    <script>
+        $(document).ready(function(){
+            // Ensure the navigation exists before initializing SlickNav
+            if ($('#navigation').length > 0) {
+                $('#navigation').slicknav({
+                    prependTo:'.mobile_menu',
+                    label: 'MENU',
+                    closeOnClick: true,
+                    allowParentLinks: false,
+                    duplicate: false,
+                    closedSymbol: '&#9658;',
+                    openedSymbol: '&#9660;',
+                    brand: '',
+                    beforeOpen: function(trigger) {
+                        console.log('Menu opening');
+                    },
+                    beforeClose: function(trigger) {
+                        console.log('Menu closing');
+                    }
+                });
+            } else {
+                console.log('Navigation element not found');
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -51,16 +51,8 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <!-- <li><a href="index.html">home</a></li> -->
-                                            
-                                            
-                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                
-                                                </ul>
-                                            </li> -->
-                                           
+                                            <li><a href="tickets.html">Table Reservations</a></li>
+                                            <li><a href="sponsorship.html">Sponsorship</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -351,6 +343,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made 
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeCustomModal();
+            }
+        });
+    </script>
+    
+    <!-- Initialize SlickNav Mobile Menu -->
+    <script>
+        $(document).ready(function(){
+            // Ensure the navigation exists before initializing SlickNav
+            if ($('#navigation').length > 0) {
+                $('#navigation').slicknav({
+                    prependTo:'.mobile_menu',
+                    label: 'MENU',
+                    closeOnClick: true,
+                    allowParentLinks: false,
+                    duplicate: false,
+                    closedSymbol: '&#9658;',
+                    openedSymbol: '&#9660;',
+                    brand: '',
+                    beforeOpen: function(trigger) {
+                        console.log('Menu opening');
+                    },
+                    beforeClose: function(trigger) {
+                        console.log('Menu closing');
+                    }
+                });
+            } else {
+                console.log('Navigation element not found');
             }
         });
     </script>

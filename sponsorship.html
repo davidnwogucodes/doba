@@ -51,16 +51,8 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <!-- <li><a href="index.html">home</a></li> -->
-                                            
-                                            
-                                            <!-- <li><a href="#">blog <i class="ti-angle-down"></i></a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">blog</a></li>
-                                                
-                                                </ul>
-                                            </li> -->
-                                           
+                                            <li><a href="tickets.html">Table Reservations</a></li>
+                                            <li><a href="sponsorship.html">Sponsorship</a></li>
                                         </ul>
                                     </nav>
                                 </div>
@@ -91,7 +83,7 @@
             <div class="row justify-content-center">
                 <div class="col-lg-8">
                     <div class="section_title text-center mb-80">
-                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">Sponsorship Opportunities</h3>
+                        <h3 class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".3s">Sponsorship</h3>
                         <p class="wow fadeInRight" data-wow-duration="1s" data-wow-delay=".4s">Join us as a sponsor for DOBA 2025 and be part of Nigeria's most prestigious award ceremony. Partner with us to celebrate excellence and make a lasting impact.</p>
                     </div>
                 </div>
@@ -407,6 +399,33 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made 
         document.addEventListener('keydown', function(event) {
             if (event.key === 'Escape') {
                 closeSponsorModal();
+            }
+        });
+    </script>
+    
+    <!-- Initialize SlickNav Mobile Menu -->
+    <script>
+        $(document).ready(function(){
+            // Ensure the navigation exists before initializing SlickNav
+            if ($('#navigation').length > 0) {
+                $('#navigation').slicknav({
+                    prependTo:'.mobile_menu',
+                    label: 'MENU',
+                    closeOnClick: true,
+                    allowParentLinks: false,
+                    duplicate: false,
+                    closedSymbol: '&#9658;',
+                    openedSymbol: '&#9660;',
+                    brand: '',
+                    beforeOpen: function(trigger) {
+                        console.log('Menu opening');
+                    },
+                    beforeClose: function(trigger) {
+                        console.log('Menu closing');
+                    }
+                });
+            } else {
+                console.log('Navigation element not found');
             }
         });
     </script>
