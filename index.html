@@ -286,10 +286,10 @@
             }
         }
         
-        /* Header blur background - reduced blur */
+        /* Header background - no blur */
         .header-area {
             background: rgba(0, 0, 0, 0.3) !important;
-            backdrop-filter: blur(2px) !important;
+            backdrop-filter: none !important;
         }
         
         /* Mobile menu container styling */
@@ -298,10 +298,10 @@
             z-index: 9999 !important;
         }
         
-        /* Ensure SlickNav menu is properly styled */
+        /* Ensure SlickNav menu is properly styled - fix transparent menu */
         .slicknav_menu {
-            background: rgba(0, 0, 0, 0.8) !important;
-            backdrop-filter: blur(15px) !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: none !important;
             display: block !important;
             position: relative !important;
             z-index: 9999 !important;
@@ -335,8 +335,8 @@
         }
         
         .slicknav_menu .slicknav_nav {
-            background: rgba(0, 0, 0, 0.9) !important;
-            backdrop-filter: blur(15px) !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: none !important;
         }
         
         .slicknav_menu .slicknav_nav a {

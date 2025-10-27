@@ -27,22 +27,63 @@
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
     
-    <!-- Prevent duplicate menu buttons -->
+    <!-- Custom styles for navigation -->
     <style>
-        /* Ensure only one mobile menu button appears */
-        .slicknav_menu {
-            position: relative !important;
-        }
-        
-        /* Hide any duplicate menu buttons */
-        .slicknav_menu + .slicknav_menu {
-            display: none !important;
-        }
-        
-        /* Ensure mobile menu is properly positioned */
+        /* Ensure mobile menu button appears on the left */
         .mobile_menu {
             position: relative !important;
             z-index: 9999 !important;
+        }
+        
+        /* Styling for main menu */
+        .main-menu {
+            display: block !important;
+        }
+        
+        .main-menu ul {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+        
+        .main-menu ul li {
+            display: inline-block !important;
+        }
+        
+        .main-menu ul li a {
+            color: #fff !important;
+            text-decoration: none !important;
+            font-size: 16px !important;
+        }
+        
+        .main-menu ul li a:hover {
+            color: #FFD700 !important;
+        }
+        
+        /* Mobile menu button positioning */
+        .mobile_menu {
+            display: none !important;
+        }
+        
+        /* Ensure SlickNav menu button is on the left */
+        .slicknav_menu {
+            position: relative !important;
+            background: rgba(0, 0, 0, 0.95) !important;
+            backdrop-filter: none !important;
+        }
+        
+        .slicknav_btn {
+            float: left !important;
+            margin: 0 !important;
+        }
+        
+        @media (max-width: 991px) {
+            .main-menu {
+                display: none !important;
+            }
+            .mobile_menu {
+                display: block !important;
+            }
         }
     </style>
 </head>
@@ -60,33 +101,27 @@
                     <div class="header_bottom_border">
                         <div class="row align-items-center">
                             <div class="col-xl-3 col-lg-3">
-                                <div class="logo">
-                                    <a href="index.html">
-                                        <img src="img/doblogo.png" alt="">
-                                    </a>
-                                </div>
+                                <!-- Logo removed -->
                             </div>
                             <div class="col-xl-6 col-lg-6">
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <!-- Navigation links removed - only in mobile menu -->
+                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="tickets.html">Table Reservations</a></li>
+                                            <li><a href="sponsorship.html">Sponsorship</a></li>
                                         </ul>
                                     </nav>
                                 </div>
                             </div>
-                            <div class="col-xl-3 col-lg-3 d-none d-lg-block">
-                                <div class="buy_tkt">
-                                    <div class="book_btn d-none d-lg-block" style="display: flex; gap: 10px;">
-                                        <a href="tickets.html" style="font-size: 0.9em; padding: 8px 16px; background-color: #FFD700; color: #000; border: 1px solid #FFD700;">Table Reservations</a>
-                                        <a href="sponsorship.html" style="font-size: 0.9em; padding: 8px 16px; background-color: #FFD700; color: #000; border: 1px solid #FFD700;">Sponsorship</a>
-                                    </div>
-                                </div>
+                            <div class="col-xl-6 col-lg-6">
+                                <!-- Spacer -->
                             </div>
                             <div class="col-12">
                                 <div class="mobile_menu d-block d-lg-none">
                                     <nav>
                                         <ul id="navigation">
+                                            <li><a href="index.html">Home</a></li>
                                             <li><a href="tickets.html">Table Reservations</a></li>
                                             <li><a href="sponsorship.html">Sponsorship</a></li>
                                         </ul>
