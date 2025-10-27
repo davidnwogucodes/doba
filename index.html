@@ -26,6 +26,266 @@
 
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    
+    <!-- Mobile Responsive Styles for Reservation Buttons -->
+    <style>
+        .reservation-buttons {
+            display: flex !important;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 20px 0;
+            visibility: visible !important;
+            opacity: 1 !important;
+        }
+        
+        .reservation-buttons .btn {
+            display: inline-block !important;
+            min-width: 150px;
+            text-align: center;
+            white-space: nowrap;
+            background-color: #FFD700 !important;
+            color: #000 !important;
+            border: 1px solid #FFD700 !important;
+            text-decoration: none !important;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            visibility: visible !important;
+            opacity: 1 !important;
+            position: relative;
+            z-index: 999;
+        }
+        
+        .reservation-buttons .btn:hover {
+            background-color: #FFC107 !important;
+            border-color: #FFC107 !important;
+            color: #000 !important;
+            text-decoration: none !important;
+            transform: translateY(-2px);
+        }
+        
+        /* Medium mobile/tablet styles */
+        @media (max-width: 991px) and (min-width: 768px) {
+            .reservation-buttons {
+                flex-direction: row !important;
+                align-items: center;
+                justify-content: center;
+                margin: 15px 0 !important;
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .reservation-buttons .btn {
+                width: auto !important;
+                min-width: 180px;
+                margin: 5px 10px !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+                display: inline-block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+        
+        /* Small mobile styles */
+        @media (max-width: 767px) {
+            .reservation-buttons {
+                flex-direction: column !important;
+                align-items: center;
+                margin: 15px 0 !important;
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .reservation-buttons .btn {
+                width: 100% !important;
+                max-width: 280px;
+                margin: 5px 0 !important;
+                padding: 12px 20px !important;
+                font-size: 14px !important;
+                display: inline-block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .reservation-buttons .btn {
+                padding: 10px 15px !important;
+                font-size: 13px !important;
+                display: inline-block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+        
+        /* Force visibility on all screen sizes */
+        @media screen and (max-width: 9999px) {
+            .reservation-buttons {
+                display: flex !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+            
+            .reservation-buttons .btn {
+                display: inline-block !important;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
+        
+        /* Hero Overlay with Glowing Buttons */
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10;
+        }
+        
+        .hero-buttons-container {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+            animation: fadeInUp 1s ease-out;
+            padding: 40px 60px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(8px);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+        }
+        
+        .hero-btn {
+            position: relative;
+            display: inline-block;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: #000;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            font-size: 18px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+            box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6), 0 0 30px rgba(255, 215, 0, 0.4);
+            border: 2px solid #FFD700;
+        }
+        
+        .hero-btn:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 215, 0, 0.8), 0 0 50px rgba(255, 215, 0, 0.6);
+            color: #000;
+            text-decoration: none;
+        }
+        
+        .btn-text {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .btn-glow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            border-radius: 50px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+        
+        .hero-btn:hover .btn-glow {
+            opacity: 0.3;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 0.1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 0.3;
+            }
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Mobile responsiveness for hero buttons */
+        @media (max-width: 768px) {
+            .hero-buttons-container {
+                gap: 20px;
+                padding: 0 20px;
+            }
+            
+            .hero-btn {
+                padding: 15px 30px;
+                font-size: 16px;
+                width: 100%;
+                max-width: 280px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-btn {
+                padding: 12px 25px;
+                font-size: 14px;
+            }
+        }
+        
+        /* About Section Buttons */
+        .about-btn:hover {
+            background-color: #FFC107 !important;
+            border-color: #FFC107 !important;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+            color: #000 !important;
+            text-decoration: none !important;
+        }
+        
+        @media (max-width: 768px) {
+            .about-buttons-container {
+                flex-direction: column !important;
+                align-items: center !important;
+            }
+            
+            .about-btn {
+                width: 100% !important;
+                max-width: 250px !important;
+                text-align: center !important;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -67,9 +327,9 @@
                             </div>
                             <div class="col-xl-3 col-lg-3 d-none d-lg-block">
                                 <div class="buy_tkt">
-                                    <div class="book_btn d-none d-lg-block" style="display: flex; gap: 10px;">
-                                        <a href="tickets.html" style="font-size: 0.9em; padding: 8px 16px; background-color: #FFD700; color: #000; border: 1px solid #FFD700;">Table Reservations</a>
-                                        <a href="sponsorship.html" style="font-size: 0.9em; padding: 8px 16px; background-color: #FFD700; color: #000; border: 1px solid #FFD700;">Sponsorship</a>
+                                    <div class="book_btn d-none d-lg-block" style="display: flex; gap: 8px;">
+                                        <a href="tickets.html" style="font-size: 0.75em; padding: 6px 12px; background-color: #FFD700; color: #000; border: 1px solid #FFD700; border-radius: 4px;">Table Reservations</a>
+                                        <a href="sponsorship.html" style="font-size: 0.75em; padding: 6px 12px; background-color: #FFD700; color: #000; border: 1px solid #FFD700; border-radius: 4px;">Sponsorship</a>
                                     </div>
                                 </div>
                             </div>
@@ -105,6 +365,20 @@
                     </div>
                 </div>
             </div>
+            
+            <!-- Hero Overlay with Glowing Buttons -->
+            <div class="hero-overlay">
+                <div class="hero-buttons-container">
+                    <a href="tickets.html" class="hero-btn table-reservation-btn">
+                        <span class="btn-text">Table Reservations</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                    <a href="sponsorship.html" class="hero-btn sponsorship-btn">
+                        <span class="btn-text">Sponsorship</span>
+                        <div class="btn-glow"></div>
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
     <!-- slider_area_end -->
@@ -136,7 +410,10 @@
                     <div class="about_info pl-68">
                         <h4 class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".5s">Dove Bliss Award 2025: The Excellent Path </h4>
                         <p  class=" wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".6s">Held annually at the prestigious International Conference Centre in Abakaliki, this event has evolved into a cornerstone platform for celebrating men and women of impeccable reputation and impactful contributions across technology, business, leadership and governance, education, entrepreneurship, and entertainment. Notably, DOBA2025 is NOT A VOTING CATEGORY —it is purely merit-based, ensuring awards are determined by a rigorous, impartial evaluation of achievements rather than public opinion or influence, reinforcing its commitment to integrity and excellence.</p>
-                        <a href="#footer" class="boxed-btn3  wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".7s">Tickets Booking</a>
+                        <div class="about-buttons-container wow fadeInLeft" data-wow-duration="1s" data-wow-delay=".7s" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                            <a href="tickets.html" class="about-btn" style="display: inline-block; background-color: #FFD700; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease;">Table Reservations</a>
+                            <a href="sponsorship.html" class="about-btn" style="display: inline-block; background-color: #FFD700; color: #000; padding: 12px 24px; text-decoration: none; border-radius: 8px; font-weight: bold; border: 2px solid #FFD700; transition: all 0.3s ease;">Sponsorship</a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -281,10 +558,14 @@
                                 <h4 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".3s">29 DEC, 2025</h4>
                                 <h3 class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".4s">Real Exclusive Palace, Abakaliki, Ebonyi State</h3>
                                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".5s">Make your reservations for either sponsorship or tickets by clicking the buttons below:</p>
-                                <div class="reservation-buttons wow fadeInUp" data-wow-duration="1s" data-wow-delay=".6s" style="margin: 20px 0;">
-                                    <a href="tickets.html" class="btn btn-warning" style="margin: 5px; padding: 10px 20px; background-color: #FFD700; color: #000; border: 1px solid #FFD700; text-decoration: none; border-radius: 5px;">Table Reservations</a>
-                                    <a href="sponsorship.html" class="btn btn-warning" style="margin: 5px; padding: 10px 20px; background-color: #FFD700; color: #000; border: 1px solid #FFD700; text-decoration: none; border-radius: 5px;">Sponsorship</a>
+                                
+                                <!-- SIMPLE BUTTONS - NO COMPLEX STYLING -->
+                                <div style="text-align: center; margin: 20px 0;">
+                                    <a href="tickets.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 15px 25px; margin: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; border: 2px solid #FFD700;">Table Reservations</a>
+                                    <br>
+                                    <a href="sponsorship.html" style="display: inline-block; background-color: #FFD700; color: #000; padding: 15px 25px; margin: 10px; text-decoration: none; border-radius: 5px; font-weight: bold; border: 2px solid #FFD700;">Sponsorship</a>
                                 </div>
+                                
                                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".7s">For additional information, please contact us on:</p>
                                 <p class="wow fadeInUp" data-wow-duration="1s" data-wow-delay=".8s">08136027018, 07034512150</p>
     
