@@ -26,6 +26,25 @@
 
     <link rel="stylesheet" href="css/style.css">
     <!-- <link rel="stylesheet" href="css/responsive.css"> -->
+    
+    <!-- Prevent duplicate menu buttons -->
+    <style>
+        /* Ensure only one mobile menu button appears */
+        .slicknav_menu {
+            position: relative !important;
+        }
+        
+        /* Hide any duplicate menu buttons */
+        .slicknav_menu + .slicknav_menu {
+            display: none !important;
+        }
+        
+        /* Ensure mobile menu is properly positioned */
+        .mobile_menu {
+            position: relative !important;
+            z-index: 9999 !important;
+        }
+    </style>
 </head>
 
 <body>
@@ -51,8 +70,7 @@
                                 <div class="main-menu  d-none d-lg-block">
                                     <nav>
                                         <ul id="navigation">
-                                            <li><a href="tickets.html">Table Reservations</a></li>
-                                            <li><a href="sponsorship.html">Sponsorship</a></li>
+                                            <!-- Navigation links removed - only in mobile menu -->
                                         </ul>
                                     </nav>
                                 </div>
@@ -66,7 +84,14 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
+                                <div class="mobile_menu d-block d-lg-none">
+                                    <nav>
+                                        <ul id="navigation">
+                                            <li><a href="tickets.html">Table Reservations</a></li>
+                                            <li><a href="sponsorship.html">Sponsorship</a></li>
+                                        </ul>
+                                    </nav>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -352,6 +377,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> Made 
         $(document).ready(function(){
             // Ensure the navigation exists before initializing SlickNav
             if ($('#navigation').length > 0) {
+                // Destroy any existing SlickNav instance first
+                if ($('#navigation').hasClass('slicknav_menu')) {
+                    $('#navigation').slicknav('destroy');
+                }
+                
                 $('#navigation').slicknav({
                     prependTo:'.mobile_menu',
                     label: 'MENU',
