@@ -6002,6 +6002,7 @@ h6 {
 .account-details p {
     margin-bottom: 8px;
     font-size: 16px;
+    color: #000 !important;
 }
 
 .whatsapp-contact a {
