@@ -5771,26 +5771,50 @@ h6 {
 
 /* Special styling for About DOBA 2025 heading */
 .about_area .section_title h3 {
-    color: #FFD700 !important;
-    text-shadow: 
-        0 0 5px #FFD700,
-        0 0 10px #FFD700,
-        0 0 15px #FFD700;
+    color: #141206 !important; /* deep brown fill */
+    text-shadow:
+        0 0 5px #a07e1a,
+        0 0 10px #a07e1a,
+        0 0 15px #a07e1a; /* button-tone glow */
     animation: glow 3s ease-in-out infinite alternate;
+}
+
+/* Align subheading color to button palette */
+.about_area .about_info h4 {
+    color: #6d542d !important; /* adjusted per request */
+}
+
+/* Award Categories text color alignment */
+.program_details_area .single_propram .porgram_top span {
+    color: #6d542d !important;
+}
+
+/* Footer text color alignment */
+.footer .address_details h4,
+.footer .address_details h3,
+.footer .address_details p,
+.footer .copy_right,
+.footer .copy_right a {
+    color: #6d542d !important;
+}
+
+/* Brand area title (Table Reservations heading) */
+.brand_area .section_title h4 {
+    color: #6d542d !important;
 }
 
 @keyframes glow {
     from {
         text-shadow: 
-            0 0 5px #FFD700,
-            0 0 10px #FFD700,
-            0 0 15px #FFD700;
+            0 0 5px #a07e1a,
+            0 0 10px #a07e1a,
+            0 0 15px #a07e1a;
     }
     to {
         text-shadow: 
-            0 0 10px #FFD700,
-            0 0 15px #FFD700,
-            0 0 20px #FFD700;
+            0 0 10px #a07e1a,
+            0 0 15px #a07e1a,
+            0 0 20px #a07e1a;
     }
 }
 
